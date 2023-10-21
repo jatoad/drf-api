@@ -27,4 +27,5 @@ urlpatterns = [
     ),
     path('', include('profiles.urls')),
     path('', include('drawers.urls')),
+    path('', include('items.urls')),
 ]

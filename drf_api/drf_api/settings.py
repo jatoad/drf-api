@@ -86,6 +86,7 @@ INSTALLED_APPS = [
 
     'profiles',
     'drawers',
+    'items',
 ]
 SITE_ID = 1
 MIDDLEWARE = [

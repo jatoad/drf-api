@@ -19,7 +19,7 @@ class DrawerList(APIView):
         )
         return Response(serializer.data)
 
-    def Drawer(self, request):
+    def put(self, request):
         serializer = DrawerSerializer(
             data=request.data, context={'request': request}
         )
