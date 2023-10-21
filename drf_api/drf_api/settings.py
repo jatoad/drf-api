@@ -55,9 +55,11 @@ SECRET_KEY = 'django-insecure-2l+9rddv!_+n237d%%q8n5773q%&o^ndb3y)s=w3^-*-vx8h_k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io']
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io'
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -89,6 +91,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'drf_api.urls'

@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from .models import Profile
 from .serializers import ProfileSerializer
 
+
 class ProfileList(APIView):
     def get(self, request):
         profiles = Profile.objects.all()
@@ -14,6 +15,7 @@ class ProfileList(APIView):
 
 class ProfileDetail(APIView):
     serializer_class = ProfileSerializer
+    
     def get_object(self, pk):
         try:
             profile = Profile.objects.get(pk=pk)
