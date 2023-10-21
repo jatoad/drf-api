@@ -45,7 +45,6 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -55,11 +54,9 @@ SECRET_KEY = 'django-insecure-2l+9rddv!_+n237d%%q8n5773q%&o^ndb3y)s=w3^-*-vx8h_k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io'
-]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -72,16 +69,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
+
     'rest_framework.authtoken',
+    'dj_rest_auth', 
+
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-    'dj_rest_auth',
-    'profiles',
-]
 
+    'profiles',
+    'drawers',
+]
 SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,7 +91,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'drf_api.urls'
