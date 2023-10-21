@@ -18,9 +18,13 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Enable logon
+    # Enable log on
     path('api-auth', include('rest_framework.urls')),
-    path('dj_rest_auth/', include('dj_rest_auth.urls')),
-    path('dj_rest_auth.registration', include('dj_rest_auth.registration.urls')),
+    # enable user registration
+    path('dj_rest_auth', include('dj_rest_auth.urls')),
+    path(
+        'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
+    ),
     path('',include('profiles.urls')),
+    path('', include('drawers.urls')),
 ]
