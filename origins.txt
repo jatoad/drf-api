@@ -1,0 +1,8 @@
+ALLOWED_HOSTS = ['8000-jatoad-drfapi-9qacg8anx0t.ws-us105.gitpod.io']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io/',
+    'https://8000-jatoad-drfapi-9qacg8anx0t.ws-us105.gitpod.io'
+]
+
+'allauth.account.middleware.AccountMiddleware'
