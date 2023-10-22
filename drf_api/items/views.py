@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Item
 from .serializers import ItemSerializer, ItemDetailSerializer
@@ -11,6 +11,16 @@ class ItemList(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Item.objects.all()
+    
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+    ]
+
+    search_fields = [
+        'owner__username',
+        'description',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
