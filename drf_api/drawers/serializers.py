@@ -7,6 +7,7 @@ class DrawerSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    items_count = serializers.ReadOnlyField()
 
     # Standard image validation function
     def validate_image(self, value):
@@ -31,5 +32,6 @@ class DrawerSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'is_owner', 'profile_id',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'description', 'image', 'image_filter'
+            'title', 'description', 'image', 'image_filter',
+            'items_count',
         ]
