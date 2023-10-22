@@ -33,3 +33,10 @@ class ItemSerializer(serializers.ModelSerializer):
             'profile_image', 'created_at', 'updated_at',
             'description', 'image'
         ]
+
+class ItemDetailSerializer(ItemSerializer):
+    """
+    Serializer for the Item model used in Detail view
+    Drawer is a read only field so that we dont have to set it on each update
+    """
+    drawer = serializers.ReadOnlyField(source='drawer.id')

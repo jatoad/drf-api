@@ -1,34 +1,25 @@
-from django.http import Http404
-from rest_framework import status, permissions
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from .models import Item
-from .serializers import ItemSerializer
+from rest_framework import generics, permissions
 from drf_api.permissions import IsOwnerOrReadOnly
+from .models import Item
+from .serializers import ItemSerializer, ItemDetailSerializer
 
-class ItemList(APIView):
+
+class ItemList(generics.ListCreateAPIView):
+    """
+    List items or create a item if logged in.
+    """
     serializer_class = ItemSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
-    ]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Item.objects.all()
 
-    def get(self, request):
-        items = Item.objects.all()
-        serializer = ItemSerializer(
-            items, many=True, context={'request': request}
-        )
-        return Response(serializer.data)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
-    def put(self, request):
-        serializer = ItemSerializer(
-            data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save(owner=request.user)
-            return Response(
-                serializer.data, status=status.HTTP_201_CREATED
-            )
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
-    
+
+class ItemDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve an item, or update or delete it by id if you own it.
+    """
+    permission_classes = [IsOwnerOrReadOnly]
+    serializer_class = ItemDetailSerializer
+    queryset = Item.objects.all()
