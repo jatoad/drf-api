@@ -34,4 +34,5 @@ urlpatterns = [
     path('', include('drawers.urls')),
     path('', include('items.urls')),
     path('', include('likes.urls')),
+    path('', include('followers.urls')),
 ]

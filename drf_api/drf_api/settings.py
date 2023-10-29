@@ -15,14 +15,14 @@ import os
 
 if os.path.exists('env.py'):
     import env
-    print ('Import env')
+    print('Import env')
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
 
 # Standard folder for Django media files
-MEDIA_URL ='/media/'
+MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -96,6 +96,7 @@ INSTALLED_APPS = [
     'drawers',
     'items',
     'likes',
+    'followers',
 
 ]
 SITE_ID = 1

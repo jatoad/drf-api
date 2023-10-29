@@ -26,14 +26,8 @@ class DrawerList(generics.ListCreateAPIView):
 
 class DrawerDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve a drawer and edit or delete it if you own it.
+    Retrieve a post and edit or delete it if you own it.
     """
     serializer_class = DrawerSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Drawer.objects.annotate(
-        items_count=Count('item', distinct=True)
-    ).order_by('-created_at')
-
-    ordering_fields = [
-        'items_count',
-    ]
+    queryset = Drawer.objects.all()
