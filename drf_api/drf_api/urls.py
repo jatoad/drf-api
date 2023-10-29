@@ -29,7 +29,7 @@ urlpatterns = [
     path('dj_rest_auth', include('dj_rest_auth.urls')),
     path(
         'dj-rest-auth/registration/', include('dj_rest_auth.registration.urls')
-    ),
+        ),
     path('', include('profiles.urls')),
     path('', include('drawers.urls')),
     path('', include('items.urls')),
