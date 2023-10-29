@@ -94,6 +94,8 @@ INSTALLED_APPS = [
     'profiles',
     'drawers',
     'items',
+    'likes',
+
 ]
 SITE_ID = 1
 MIDDLEWARE = [
