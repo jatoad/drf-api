@@ -70,7 +70,7 @@ ALLOWED_HOSTS = [
     '8000-jatoad-drfapi-jmeq3hfqsnn.ws-eu106.gitpod.io',
     'full-stack-django-0f48f57393c6.herokuapp.com',
     'localhost',
-    'display-cabinet-aae0f40ef1ac.herokuapp.com/',
+    'display-cabinet-aae0f40ef1ac.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -123,18 +123,18 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware'
 ]
      
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
-    ]
-
-    
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS = [
+#         os.environ.get('CLIENT_ORIGIN')
+#     ]
+# else:
+#     CORS_ALLOWED_ORIGIN_REGEXES = [
+#         r"^https://.*\.gitpod\.io$",
+#     ]
 
 CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = [ "accept", "referer", "accept-encoding", "authorization", "content-type", "dnt", "origin", "user-agent", "x-csrftoken", "x-sessionid", "x-requested-with"]
 
 ROOT_URLCONF = 'drf_api.urls'
 
