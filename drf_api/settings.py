@@ -62,7 +62,8 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+# DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io',
@@ -128,6 +129,8 @@ else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
         r"^https://.*\.gitpod\.io$",
     ]
+
+    
 
 CORS_ALLOW_CREDENTIALS = True
 
