@@ -67,10 +67,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-jatoad-drfapi-jmeq3hfqsnn.ws-eu106.gitpod.io',
-    'full-stack-django-0f48f57393c6.herokuapp.com',
-    'localhost',
-    'display-cabinet-aae0f40ef1ac.herokuapp.com/',
+    os.environ.get('ALLOWED_HOST'),
+   'localhost',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
