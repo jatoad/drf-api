@@ -67,6 +67,8 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io',
     'https://full-stack-django-0f48f57393c6.herokuapp.com',
+    'localhost',
+    'django-full-stack.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -107,8 +109,8 @@ INSTALLED_APPS = [
 ]
 SITE_ID = 1
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -153,17 +155,17 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
- if 'DEV' in os.environ:
-     DATABASES = {
-         'default': {
-             'ENGINE': 'django.db.backends.sqlite3',
-             'NAME': BASE_DIR / 'db.sqlite3',
-         }
-     }
- else:
-     DATABASES = {
-         'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-     }
+# if 'DEV' in os.environ:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+#  else:
+#      DATABASES = {
+#          'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+#      }
 
 
 # Password validation
