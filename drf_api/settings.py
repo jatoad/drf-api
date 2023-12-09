@@ -67,7 +67,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-jatoad-drfapi-9qacg8anx0t.ws-eu105.gitpod.io',
-    'https://full-stack-django-0f48f57393c6.herokuapp.com',
+    'full-stack-django-0f48f57393c6.herokuapp.com',
     'localhost',
     'django-full-stack.herokuapp.com',
 ]
