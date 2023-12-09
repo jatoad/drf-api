@@ -91,7 +91,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
-
+    'django_filters',
     'rest_framework.authtoken',
     'dj_rest_auth', 
 
@@ -99,7 +99,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_filters',
+
     'dj_rest_auth.registration',
     'corsheaders',
 
@@ -120,7 +120,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
 ]
      
 # if 'CLIENT_ORIGIN' in os.environ:
