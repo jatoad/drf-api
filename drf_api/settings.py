@@ -132,9 +132,14 @@ MIDDLEWARE = [
 #         r"^https://.*\.gitpod\.io$",
 #     ]
 
+CORS_ALLOW_ALL_ORIGINS = True # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_HEADERS = [ "accept", "referer", "accept-encoding", "authorization", "content-type", "dnt", "origin", "user-agent", "x-csrftoken", "x-sessionid", "x-requested-with"]
+CORS_ALLOWED_ORIGINS = [
+    'https://display-cabinet-aae0f40ef1ac.herokuapp.com',
+] # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    'https://display-cabinet-aae0f40ef1ac.herokuapp.com',
+]
 
 ROOT_URLCONF = 'drf_api.urls'
 
