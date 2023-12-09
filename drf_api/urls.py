@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import root_route
 from .views import root_route, logout_route
-from dj_rest_auth.views import (LoginView)
+from dj_rest_auth.views import (LoginView, UserDetailsView)
 
 urlpatterns = [
     path('', root_route),
@@ -26,7 +26,8 @@ urlpatterns = [
     path('api-auth', include('rest_framework.urls')),
     # our logout route has to be above the default one to be matched first
     path('dj-rest-auth/logout/', logout_route),
-    path('dj-rest-auth/login/', LoginView.as_view(), name='login'),
+    path('dj-rest-auth/login/', LoginView.as_view(), name='rest_login'),
+    path('dj-rest-auth/user/', UserDetailsView.as_view(), name='rest_user_details'),
     # # enable user registration
     path('dj_rest_auth/', include('dj_rest_auth.urls')),
     path(
