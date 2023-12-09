@@ -18,15 +18,15 @@ if os.path.exists('env.py'):
     import env
     print('Import env')
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
 
-CLOUDINARY_URL = 'cloudinary://944931775593423:huq1ZGsG3PII3T1ul4wjH_HozKY@dib6k8rhm'
-CLOUDINARY_STORAGE = 'cloudinary://944931775593423:huq1ZGsG3PII3T1ul4wjH_HozKY@dib6k8rhm'
-CLOUD_NAME = "my-cloud"
-API_KEY = "my-api-key"
-API_SECRET = "my-api-secret"
+# CLOUDINARY_URL = 'cloudinary://944931775593423:huq1ZGsG3PII3T1ul4wjH_HozKY@dib6k8rhm'
+# CLOUDINARY_STORAGE = 'cloudinary://944931775593423:huq1ZGsG3PII3T1ul4wjH_HozKY@dib6k8rhm'
+# CLOUD_NAME = "my-cloud"
+# API_KEY = "my-api-key"
+# API_SECRET = "my-api-secret"
 
 # Standard folder for Django media files
 MEDIA_URL = '/media/'
