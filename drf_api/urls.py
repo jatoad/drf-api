@@ -18,6 +18,7 @@ from django.urls import path, include
 from .views import root_route
 from .views import root_route, logout_route
 from dj_rest_auth.views import (LoginView, UserDetailsView)
+from .views import CookieTokenRefreshView, CookieTokenObtainPairView
 
 urlpatterns = [
     path('', root_route),
@@ -28,6 +29,8 @@ urlpatterns = [
     path('dj-rest-auth/logout/', logout_route),
     path('dj-rest-auth/login/', LoginView.as_view(), name='rest_login'),
     path('dj-rest-auth/user/', UserDetailsView.as_view(), name='rest_user_details'),
+    path('dj-rest-auth/token/', CookieTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('dj-rest-auth/token/refresh/', CookieTokenRefreshView.as_view(), name='token_refresh'),
     # # enable user registration
     path('dj_rest_auth/', include('dj_rest_auth.urls')),
     path(
