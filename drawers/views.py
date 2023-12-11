@@ -4,7 +4,6 @@ from drf_api.permissions import IsOwnerOrReadOnly
 from .models import Drawer
 from .serializers import DrawerSerializer
 
-
 class DrawerList(generics.ListCreateAPIView):
     """
     List drawers or create a drawer if logged in
